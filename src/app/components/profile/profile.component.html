@@ -1,0 +1,13 @@
+<div *ngIf="profile; else loading">
+    <h1>{{ profile.firstName }} {{ profile.lastName }}</h1>
+    <p><strong>Handle:</strong> {{ profile.handle }}</p>
+    <p><strong>Email:</strong> {{ profile.email }}</p>
+    <p><strong>Country:</strong> {{ profile.country }}</p>
+    <p><strong>Gender:</strong> {{ profile.gender }}</p>
+    <p><strong>Branch:</strong> {{ profile.branch }}</p>
+    <p><strong>Title:</strong> {{ profile.title }}</p>
+    <p><strong>Created On:</strong> {{ profile.createdOn }}</p>
+</div>
+<ng-template #loading>
+     <p>Loading profile...</p>
+</ng-template>

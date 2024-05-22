@@ -1,0 +1,42 @@
+<h1>Register Form</h1>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div>
+    <input type="text" placeholder="First name" formControlName="firstName"/>
+  </div>
+
+  <div>
+    <input type="text" placeholder="Surname" formControlName="lastName"/>
+  </div>
+
+  <div>
+    <input type="text" placeholder="Handle" formControlName="handle"/>
+  </div>
+
+  <div>
+    <input type="email" placeholder="Email" formControlName="email"/>
+  </div>
+
+  <div>
+    <input type="text" placeholder="Branch" formControlName="branch"/>
+  </div>
+
+  <div>
+    <input type="text" placeholder="Password" formControlName="password"/>
+  </div>
+
+  <div>
+    <input type="number" placeholder="Gender" formControlName="gender"/>
+  </div>
+
+  <div>
+    <input type="text" placeholder="Title" formControlName="title"/>
+  </div>
+
+  <div>
+    <input type="text" placeholder="Country" formControlName="country"/>
+  </div>
+
+  <div>
+    <button type="submit">Sign Up</button>
+  </div>
+</form>
