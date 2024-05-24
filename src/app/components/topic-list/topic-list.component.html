@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>Topic List</h2>
+    <div *ngIf="topicList && topicList.length > 0; else noTopics">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let topic of topicList">
+          {{ topic.name }}
+        </li>
+      </ul>
+    </div>
+    <ng-template #noTopics>
+      <p>No topics found.</p>
+    </ng-template>
+  
+    <button type="button" class="btn btn-primary mt-3" (click)="createNewTopic()">Create New Topic</button>
+  </div>
+  

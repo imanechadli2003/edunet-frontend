@@ -1,0 +1,12 @@
+<div class="topic-details">
+    <h1>{{ topic?.name }}</h1>
+    <p><strong>Description:</strong> {{ topic?.description }}</p>
+    <p><strong>Privacy Level:</strong> {{ topic?.privacy }}</p>
+    <p><strong>Owner:</strong> {{ topic?.owner }}</p>
+    <p><strong>Created On:</strong> {{ topic?.createdOn | date }}</p>
+</div>
+
+<div class="navigation">
+    <a [routerLink]="['/topic', topic?.id, 'members']" class="btn btn-primary">Members</a>
+    <a [routerLink]="['/topic', topic?.id, 'posts']" class="btn btn-secondary">Posts</a>
+</div>

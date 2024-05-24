@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Topic search results for {{ query }} </h2>
+  <div *ngIf="searchResults && searchResults.length > 0; else emptyResults">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let topic of searchResults">
+        <a [routerLink]="['/topic', topic.id]">{{ topic.name }}</a>
+      </li>
+    </ul>
+  </div>
+  <ng-template #emptyResults>
+    <p>No results found.</p>
+  </ng-template>
+</div>
