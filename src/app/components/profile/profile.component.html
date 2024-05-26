@@ -1,13 +1,23 @@
-<div *ngIf="profile; else loading">
-    <h1>{{ profile.firstName }} {{ profile.lastName }}</h1>
-    <p><strong>Handle:</strong> {{ profile.handle }}</p>
-    <p><strong>Email:</strong> {{ profile.email }}</p>
-    <p><strong>Country:</strong> {{ profile.country }}</p>
-    <p><strong>Gender:</strong> {{ profile.gender }}</p>
-    <p><strong>Branch:</strong> {{ profile.branch }}</p>
-    <p><strong>Title:</strong> {{ profile.title }}</p>
-    <p><strong>Created On:</strong> {{ profile.createdOn }}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div *ngIf="profile" class="profile-details">
+        <h1 class="profile-name">{{ profile.firstName }} {{ profile.lastName }}</h1>
+        <div class="profile-info">
+          <p><strong>Handle:</strong> {{ profile.handle }}</p>
+          <p><strong>Email:</strong> {{ profile.email }}</p>
+          <p><strong>Country:</strong> {{ profile.country }}</p>
+          <p><strong>Gender:</strong> {{ profile.gender }}</p>
+          <p><strong>Branch:</strong> {{ profile.branch }}</p>
+          <p><strong>Title:</strong> {{ profile.title }}</p>
+          <p><strong>Created On:</strong> {{ profile.createdOn }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <button type="button" class="btn btn-primary mt-3" (click)="createNewPost()">New Post</button>
+      <app-post-list [id]="userId" [entityType]="EntityType.Profile"></app-post-list>
+    </div>
+  </div>
 </div>
-<ng-template #loading>
-     <p>Loading profile...</p>
-</ng-template>

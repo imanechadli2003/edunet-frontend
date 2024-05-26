@@ -1,0 +1,14 @@
+.profile-details {
+  background-color: #f8f9fa; /* Light gray background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.profile-name {
+  margin-bottom: 20px; /* Spacing between name and other details */
+}
+
+.profile-info p {
+  margin-bottom: 10px; /* Spacing between each detail */
+}

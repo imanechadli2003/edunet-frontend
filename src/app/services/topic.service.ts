@@ -25,7 +25,11 @@ export class TopicService {
     return this.http.get<Topic[]>(`${this.apiUrl}?page=0&size=10`)
   }
 
-  getTopicById(topicId: string): Observable<Topic> {
+  getTopicById(topicId: number): Observable<Topic> {
     return this.http.get<Topic>(`${this.apiUrl}/${topicId}`);
+  }
+
+  getMembership(id: number) {
+    return this.http.get(`${this.apiUrl}/${id}/membership`)
   }
 }

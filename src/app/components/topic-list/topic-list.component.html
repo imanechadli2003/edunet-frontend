@@ -1,16 +1,26 @@
-<div class="container">
-    <h2>Topic List</h2>
+<div class="container my-5">
+  <div class="topic-list-container">
+    <h2 class="text-center mb-4">Your topics</h2>
     <div *ngIf="topicList && topicList.length > 0; else noTopics">
-      <ul class="list-group">
-        <li class="list-group-item" *ngFor="let topic of topicList">
-          {{ topic.name }}
-        </li>
-      </ul>
+      <div class="row">
+        <div *ngFor="let topic of topicList" class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">
+                <a [routerLink]="['/topic', topic.id]" class="text-decoration-none">{{ topic.name }}</a>
+              </h5>
+              <p class="card-text">{{ topic.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <ng-template #noTopics>
-      <p>No topics found.</p>
+      <p class="text-center">No topics found.</p>
     </ng-template>
-  
-    <button type="button" class="btn btn-primary mt-3" (click)="createNewTopic()">Create New Topic</button>
+    <div class="text-center mt-4">
+      <button type="button" class="btn btn-primary" (click)="createNewTopic()">Create New Topic</button>
+    </div>
   </div>
-  
+</div>
+

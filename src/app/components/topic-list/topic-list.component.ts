@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import { TopicService } from '../../services/topic.service';
 import { Topic } from '../../shared/data/topic';
 
 @Component({
   selector: 'app-topic-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './topic-list.component.html',
   styleUrl: './topic-list.component.css'
 })

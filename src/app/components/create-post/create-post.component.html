@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>Create New Post</h2>
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea id="content" formControlName="content" class="form-control" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="postForm.invalid">Submit</button>
+  </form>
+</div>

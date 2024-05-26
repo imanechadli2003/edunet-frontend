@@ -5,6 +5,7 @@ import { LoginData } from '../shared/data/login';
 import { Profile } from '../shared/data/profile';
 import { Token } from '../shared/data/token';
 import { User } from '../shared/data/user';
+import {Post} from "../shared/data/post";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class UserService {
 
   currentUserSig = signal<User | undefined | null>(undefined);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   login(user: LoginData): Observable<boolean> {
     return this.http.post<Token>(this.apiUrl + "/auth/token", user)
@@ -27,7 +29,7 @@ export class UserService {
             id: response.id,
             handle: response.handle
           });
-          return true; // Indicate success
+          return true;
         }),
         catchError((error: HttpErrorResponse) => {
           if (error.status === 401) {
@@ -35,7 +37,7 @@ export class UserService {
           } else {
             console.error('An error occurred:', error.message);
           }
-          return of(false); // Indicate failure
+          return of(false);
         })
       );
   }
@@ -46,7 +48,25 @@ export class UserService {
     .subscribe((response) => console.log("response", response));
   }
 
-  getCurrentUserProfile() {
+  getCurrentUserProfile(id: number) {
+    return this.http.get<Profile>(`${this.apiUrl}/users/${id}`);
+  }
+
+  getAuthenticatedUserProfile() {
     return this.http.get<Profile>(`${this.apiUrl}/users/${this.currentUserSig()?.id}`);
+  }
+
+  getUserPosts(id: number) {
+    return this.http.get<Post[]>(`${this.apiUrl}/users/${id}/posts/public`)
+  }
+
+  createUserPost(post: any): Observable<Post> {
+    console.log("sending request");
+    return this.http.post<Post>(`${this.apiUrl}/users/posts/public`, post);
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.currentUserSig.set(null);
   }
 }

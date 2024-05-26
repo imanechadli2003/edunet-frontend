@@ -1,13 +1,27 @@
 <div class="container">
-  <h2>Topic search results for {{ query }} </h2>
-  <div *ngIf="searchResults && searchResults.length > 0; else emptyResults">
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let topic of searchResults">
-        <a [routerLink]="['/topic', topic.id]">{{ topic.name }}</a>
-      </li>
-    </ul>
-  </div>
-  <ng-template #emptyResults>
-    <p>No results found.</p>
+  <ng-container *ngIf="query">
+    <h2>{{ searchType === 'u' ? 'User' : 'Topic' }} search results for {{ query }} </h2>
+    <div *ngIf="searchType === 'u'; else topicResults">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let user of userSearchResults">
+          <a [routerLink]="['/profile', user.id]">{{ user.handle }}</a>
+        </li>
+      </ul>
+    </div>
+    <ng-template #topicResults>
+      <div *ngIf="topicSearchResults.length > 0; else emptyTopicResults">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let topic of topicSearchResults">
+            <a [routerLink]="['/topic', topic.id]">{{ topic.name }}</a>
+          </li>
+        </ul>
+      </div>
+      <ng-template #emptyTopicResults>
+        <p>No topic results found.</p>
+      </ng-template>
+    </ng-template>
+  </ng-container>
+  <ng-template #noQuery>
+    <p>No query provided.</p>
   </ng-template>
 </div>

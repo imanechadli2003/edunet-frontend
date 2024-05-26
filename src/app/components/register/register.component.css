@@ -1,35 +1,55 @@
-.card {
-  border: none;
+body {
+  color: black;
+}
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.register-form {
+  width: 400px;
   padding: 20px;
-  background-color: #1c1e21;
-  color: #fff
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.contain{
-margin: 4.5rem 0 3rem 0;
+.register-form div {
+  margin-bottom: 15px;
 }
 
-.form-input {
-  position: relative;
-  margin-bottom: 10px;
-  margin-top: 10px
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"],
+.register-form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: black;
 }
 
-.form-control {
-  height: 50px;
-  background-color: #dfe7f3;
-  text-indent: 24px;
-  font-size: 15px
+.register-form input[type="text"]::placeholder,
+.register-form input[type="email"]::placeholder,
+.register-form input[type="password"]::placeholder,
+.register-form input[type="number"]::placeholder {
+  color: grey;
 }
 
-.form-control:focus {
-  background-color: #25272a;
-  box-shadow: none;
+.register-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
   color: #fff;
-  border-color: #4f63e7
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
-.signup {
-  height: 50px;
-  font-size: 14px
+.register-form button:hover {
+  background-color: #0056b3;
 }
