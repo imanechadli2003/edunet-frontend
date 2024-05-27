@@ -1,15 +1,6 @@
-.cursor-pointer {
-  cursor: pointer;
-}
-
 .comments-section {
   border-top: 1px solid #ddd;
   padding-top: 15px;
-}
-
-.comment {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
 }
 
 .input-group {

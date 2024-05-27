@@ -1,0 +1,19 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="text-center mb-4">Join Requests</h2>
+      <div *ngIf="joinRequests && joinRequests.length > 0; else noRequests">
+        <div class="card mb-3" *ngFor="let request of joinRequests">
+          <div class="card-body">
+            <h5 class="card-title">{{ request.handle }}</h5>
+            <button class="btn btn-success me-2" (click)="acceptRequest(request.id)">Accept</button>
+            <button class="btn btn-danger" (click)="rejectRequest(request.id)">Reject</button>
+          </div>
+        </div>
+      </div>
+      <ng-template #noRequests>
+        <p class="text-center">No join requests found.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

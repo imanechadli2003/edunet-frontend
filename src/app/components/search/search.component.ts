@@ -4,11 +4,13 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SearchService } from '../../services/search.service';
 import { Topic } from '../../shared/data/topic';
 import {User} from "../../shared/data/user";
+import {UserListComponent} from "../user-list/user-list.component";
+import {TopicListComponent} from "../topic-list/topic-list.component";
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, UserListComponent, TopicListComponent],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })

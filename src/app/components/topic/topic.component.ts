@@ -55,10 +55,25 @@ export class TopicComponent implements OnInit {
   protected readonly EntityType = EntityType;
 
   leaveTopic() {
-    // TODO
+    this.topicService.leave(this.id).subscribe();
   }
 
   joinTopic() {
-    // TODO
+    this.topicService.join(this.id).subscribe();
+  }
+
+  getJoinRequests() {
+    this.router.navigate(["/join-requests", this.id])
+
+  }
+
+  deleteTopic() {
+    this.topicService.deleteTopic(this.id).subscribe(
+      (response) => this.router.navigateByUrl("/")
+    );
+  }
+
+  memberList() {
+    this.router.navigate(["/members", this.id]);
   }
 }

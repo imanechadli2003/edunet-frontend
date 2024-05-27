@@ -11,9 +11,11 @@
       </div>
 
       <div class="navigation">
-        <a [routerLink]="['/topic', topic?.id, 'members']" class="btn btn-primary mb-2">Members</a>
+        <button *ngIf="membership !== 'NONE'" class="btn btn-success" (click)="memberList()">Members</button>
         <button *ngIf="membership !== 'NONE' && membership !== 'OWNER'" class="btn btn-danger" (click)="leaveTopic()">Leave</button>
         <button *ngIf="membership === 'NONE'" class="btn btn-success" (click)="joinTopic()">Join</button>
+        <button *ngIf="membership === 'OWNER' || membership === 'MODERATOR'" class="btn btn-success" (click)="getJoinRequests()">Join Requests</button>
+        <button *ngIf="membership === 'OWNER'" class="btn btn-danger" (click)="deleteTopic()">Delete</button>
       </div>
     </div>
 

@@ -3,6 +3,7 @@ import {inject, Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post } from '../shared/data/post';
 import {UserService} from "./user.service";
+import {Comment} from "../shared/data/comment";
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,13 @@ export class PostService {
 
   vote(id: number, v: number): Observable<any> {
     return this.http.post(`${this.postsUrl}/vote/${id}`, {v: v})
+  }
+
+  addComment(id: number, comment: string): Observable<Comment> {
+    return this.http.post<Comment>(`${this.postsUrl}/${id}/comments`, {comment: comment});
+  }
+
+  getComments(id: number): Observable<Comment[]> {
+    return this.http.get<Comment[]>(`${this.postsUrl}/${id}/comments`);
   }
 }

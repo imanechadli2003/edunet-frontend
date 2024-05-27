@@ -11,7 +11,13 @@ import { authGuard } from './guards/auth.guard';
 import { unauthGuard } from './guards/unauth.guard';
 import {CreatePostComponent} from "./components/create-post/create-post.component";
 import {AppComponent} from "./app.component";
+import {RequestsComponent} from "./components/requests/requests.component";
+import {MyTopicsComponent} from "./components/my-topics/my-topics.component";
+import {MembersComponent} from "./components/members/members.component";
+import { SettingsComponent } from './components/settings/settings.component';
+import {ChangePasswordComponent} from "./components/change-password/change-password.component";
 
+// @ts-ignore
 // @ts-ignore
 // @ts-ignore
 export const routes: Routes = [
@@ -41,8 +47,8 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
-    path: 'topic-list',
-    component: TopicListComponent,
+    path: 'my-topics',
+    component: MyTopicsComponent,
     canActivate: [authGuard]
   },
   {
@@ -66,6 +72,26 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
+    path: "join-requests/:id",
+    component: RequestsComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "members/:id",
+    component: MembersComponent,
+    canActivate: [authGuard]
+  },
+  {
     path: 'logout', redirectTo: '/',
+  },
+  {
+    path: "settings",
+    component: SettingsComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "change-password",
+    component: ChangePasswordComponent,
+    canActivate: [authGuard]
   }
 ];

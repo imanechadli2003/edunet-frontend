@@ -1,13 +1,17 @@
 import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
 import {Post} from "../../shared/data/post";
-import {DatePipe} from "@angular/common";
+import {CommonModule, DatePipe} from "@angular/common";
 import {PostService} from "../../services/post.service";
+import {Comment} from "../../shared/data/comment";
+import {FormsModule} from "@angular/forms";
+import {RouterLink} from "@angular/router";
+import {CommentSectionComponent} from "../comment-section/comment-section.component";
 
 @Component({
   selector: 'app-post',
   standalone: true,
   imports: [
-    DatePipe
+    DatePipe, CommonModule, FormsModule, RouterLink, CommentSectionComponent
   ],
   templateUrl: './post.component.html',
   styleUrl: './post.component.css'
@@ -22,6 +26,11 @@ export class PostComponent {
 
   postService: PostService = inject(PostService);
 
+  comments: Comment[] = []
+
+  commentsVisible: boolean = false;
+
+  newComment: string = "";
 
   vote(v: number) {
     this.postService.vote(this.post.id, v).subscribe(
@@ -47,5 +56,13 @@ export class PostComponent {
         this.postDeleted.emit(this.post.id);
       });
     }
+  }
+
+  toggleComments() {
+    this.commentsVisible = !this.commentsVisible;
+  }
+
+  incrementComments() {
+    this.post.comments++;
   }
 }

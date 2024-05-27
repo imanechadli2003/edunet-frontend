@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import {Component, OnInit, inject, Input} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
 import { TopicService } from '../../services/topic.service';
 import { Topic } from '../../shared/data/topic';
@@ -15,14 +15,11 @@ export class TopicListComponent implements OnInit {
 
   router = inject(Router);
 
-  topicList: Topic[] = [];
+  @Input() topicList: Topic[] = [];
 
   topicService: TopicService = inject(TopicService);
 
   ngOnInit(): void {
-    this.topicService.getTopics().subscribe(
-      (response) => this.topicList = response
-    );
   }
 
   createNewTopic() {

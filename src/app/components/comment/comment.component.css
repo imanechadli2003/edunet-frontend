@@ -1,0 +1,13 @@
+.comment {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+a.text-decoration-none {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a.text-decoration-none:hover {
+  text-decoration: underline;
+}

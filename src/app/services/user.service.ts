@@ -69,4 +69,12 @@ export class UserService {
     localStorage.removeItem('token');
     this.currentUserSig.set(null);
   }
+
+  deleteAccount(): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/users/${this.currentUserSig()?.id}`);
+  }
+
+  changePassword(data: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/users/change-password/${this.currentUserSig()?.id}`, data);
+  }
 }
