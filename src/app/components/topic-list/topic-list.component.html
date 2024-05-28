@@ -11,6 +11,7 @@
               </h5>
               <p class="card-text">{{ topic.description }}</p>
             </div>
+            <button *ngIf="userService.isAdmin()" class="btn btn-danger" (click)="deleteTopic(topic.id)">Delete</button>
           </div>
         </div>
       </div>

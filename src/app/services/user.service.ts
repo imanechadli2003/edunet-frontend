@@ -27,7 +27,8 @@ export class UserService {
           localStorage.setItem('token', response.token);
           this.currentUserSig.set({
             id: response.id,
-            handle: response.handle
+            handle: response.handle,
+            role: response.role
           });
           return true;
         }),
@@ -76,5 +77,19 @@ export class UserService {
 
   changePassword(data: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/users/change-password/${this.currentUserSig()?.id}`, data);
+  }
+
+  deleteAccountByAdmin(id: number) {
+    return this.http.delete(`${this.apiUrl}/admin/users/${id}`);
+  }
+
+  isAdmin() {
+    const currentUser = this.currentUserSig();
+    console.log(currentUser?.role);
+    return currentUser && currentUser.role === 'SCOPE_admin';
+  }
+
+  deleteTopicByAdmin(id: number) {
+    return this.http.delete(`${this.apiUrl}/admin/topics/${id}`);
   }
 }

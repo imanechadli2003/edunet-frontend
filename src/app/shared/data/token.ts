@@ -1,5 +1,6 @@
 export interface Token {
     id: number,
     handle: string,
-    token: string
+    token: string,
+    role: string,
 }
