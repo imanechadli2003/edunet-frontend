@@ -4,17 +4,18 @@ import { Observable } from 'rxjs';
 import { Post } from '../shared/data/post';
 import {UserService} from "./user.service";
 import {Comment} from "../shared/data/comment";
+import {API_BASE_URL} from "../../../config";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  private topicsUrl = 'http://localhost:10000/api/topics';
+  private topicsUrl = `${API_BASE_URL}/topics`;
 
-  private usersUrl = 'http://localhost:10000/api/users';
+  private usersUrl = `${API_BASE_URL}/users`;
 
-  private postsUrl = 'http://localhost:10000/api/posts';
+  private postsUrl = `${API_BASE_URL}/posts`;
 
   private userService = inject(UserService);
 

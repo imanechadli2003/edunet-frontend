@@ -56,14 +56,6 @@ export class ProfileComponent implements OnInit {
     );
   }
 
-  upvote(post: Post) {
-    // TODO
-  }
-
-  downvote(post: Post) {
-    // TODO
-  }
-
   createNewPost() {
     this.router.navigateByUrl(`/create-post/0`);
   }

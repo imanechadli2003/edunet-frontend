@@ -3,15 +3,16 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Topic } from '../shared/data/topic';
 import {User} from "../shared/data/user";
+import {API_BASE_URL} from "../../../config";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
 
-  searchTopicsUrl: string = "http://localhost:10000/api/topics/search";
+  searchTopicsUrl: string = `${API_BASE_URL}/topics/search`;
 
-  searchUserUrl: string = "http://localhost:10000/api/users/search";
+  searchUserUrl: string = `${API_BASE_URL}/users/search`;
 
   http: HttpClient;
 

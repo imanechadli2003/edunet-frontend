@@ -4,13 +4,14 @@ import { Observable } from 'rxjs';
 import { Topic } from '../shared/data/topic';
 import {JoinRequest} from "../shared/data/join-request";
 import {User} from "../shared/data/user";
+import {API_BASE_URL} from "../../../config";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TopicService {
 
-  apiUrl = 'http://localhost:10000/api/topics';
+  apiUrl = `${API_BASE_URL}/topics`;
 
   http: HttpClient;
 

@@ -2,15 +2,16 @@ import {inject, Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {Branch} from "../shared/data/branch";
 import {HttpClient} from "@angular/common/http";
+import {API_BASE_URL} from "../../../config";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BranchService {
 
-  apiUrl = 'http://localhost:10000/api/branches';
+  apiUrl = `${API_BASE_URL}/branches`;
 
-  apiAdminUrl = 'http://localhost:10000/api/admin/branches';
+  apiAdminUrl = `${API_BASE_URL}/admin/branches`;
 
   http = inject(HttpClient)
 

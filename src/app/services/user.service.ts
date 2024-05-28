@@ -6,13 +6,14 @@ import { Profile } from '../shared/data/profile';
 import { Token } from '../shared/data/token';
 import { User } from '../shared/data/user';
 import {Post} from "../shared/data/post";
+import {API_BASE_URL} from "../../../config";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:10000/api';
+  private apiUrl = `${API_BASE_URL}`;
 
   currentUserSig = signal<User | undefined | null>(undefined);
 
