@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import {Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import { UserService } from './services/user.service';
 import { User } from './shared/data/user';
+import {API_BASE_URL} from "../../config";
 
 @Component({
   selector: 'app-root',
@@ -33,7 +34,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get<User>("http://localhost:10000/api/auth/user")
+    this.http.get<User>(`${API_BASE_URL}/auth/user`)
       .subscribe(
         (user) => {
           console.log("authentication check response: ", user);
