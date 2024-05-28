@@ -17,7 +17,10 @@
     </div>
 
     <div class="mb-3">
-      <input type="text" placeholder="Branch" formControlName="branch" class="form-control"/>
+      <select formControlName="branch" class="form-select">
+        <option value="" disabled selected>Branch</option>
+        <option [ngValue]="branch.name" *ngFor="let branch of branchList">{{ branch.name }}</option>
+      </select>
     </div>
 
     <div class="mb-3">
