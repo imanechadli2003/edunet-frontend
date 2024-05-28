@@ -1,0 +1,10 @@
+<div class="container my-5">
+  <h2>Branch List</h2>
+  <button *ngIf="userService.isAdmin()" class="btn btn-primary mb-3" [routerLink]="['/create-branch']">Add New Branch</button>
+  <div *ngIf="branches.length > 0; else noBranches">
+    <app-branch *ngFor="let branch of branches" [branch]="branch"></app-branch>
+  </div>
+  <ng-template #noBranches>
+    <p>No branches found.</p>
+  </ng-template>
+</div>

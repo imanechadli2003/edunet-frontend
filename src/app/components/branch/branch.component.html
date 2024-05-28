@@ -1,0 +1,9 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">{{ branch.name }}</h5>
+    <p class="card-text">{{ branch.description }}</p>
+    <div *ngIf="isAdmin">
+      <button class="btn btn-secondary btn-sm me-2" (click)="editBranch()">Edit</button>
+    </div>
+  </div>
+</div>

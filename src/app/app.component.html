@@ -10,6 +10,7 @@
         <div class="navbar-nav me-auto">
           <a [routerLink]="['/profile', userService.currentUserSig()?.id]" routerLinkActive="active" class="nav-link">Profile</a>
           <a routerLink="/my-topics" routerLinkActive="active" class="nav-link">Topics</a>
+          <a routerLink="/branch-list" routerLinkActive="active" class="nav-link">Branches</a>
           <a routerLink="/settings" routerLinkActive="active" class="nav-link">Settings</a>
           <a class="nav-link" (click)="logout()">
             <i class="fas fa-sign-out-alt"></i>

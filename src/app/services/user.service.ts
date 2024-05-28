@@ -86,7 +86,7 @@ export class UserService {
   isAdmin() {
     const currentUser = this.currentUserSig();
     console.log(currentUser?.role);
-    return currentUser && currentUser.role === 'SCOPE_admin';
+    return currentUser?.role === 'SCOPE_admin';
   }
 
   deleteTopicByAdmin(id: number) {

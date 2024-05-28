@@ -16,6 +16,9 @@ import {MyTopicsComponent} from "./components/my-topics/my-topics.component";
 import {MembersComponent} from "./components/members/members.component";
 import { SettingsComponent } from './components/settings/settings.component';
 import {ChangePasswordComponent} from "./components/change-password/change-password.component";
+import { BranchListComponent } from './components/branch-list/branch-list.component';
+import {CreateBranchComponent} from "./components/create-branch/create-branch.component";
+import {EditBranchComponent} from "./components/edit-branch/edit-branch.component";
 
 // @ts-ignore
 // @ts-ignore
@@ -87,6 +90,21 @@ export const routes: Routes = [
   {
     path: "settings",
     component: SettingsComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "branch-list",
+    component: BranchListComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "create-branch",
+    component: CreateBranchComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: "edit-branch/:id",
+    component: EditBranchComponent,
     canActivate: [authGuard]
   },
   {
